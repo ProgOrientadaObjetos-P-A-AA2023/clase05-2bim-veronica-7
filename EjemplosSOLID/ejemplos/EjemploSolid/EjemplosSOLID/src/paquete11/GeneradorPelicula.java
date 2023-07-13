@@ -9,22 +9,37 @@ public class GeneradorPelicula {
     
     private APIMovie llave;
     private String url;
-    // agregar un user (tipo String)
-    
-    public void establecerLlave(APIMovie l){ // APINetflix, APIAmazon
+    private String user;
+
+    public void establecerLlave(APIMovie l) { // APINetflix, APIAmazon
         llave = l;
     }
-    
-    public void establecerUrl(String l){
+
+    public void establecerUrl(String l) {
         url = String.format("%s%s", l, obtenerLlave().obtenerApiKey());
     }
-    
-    public APIMovie obtenerLlave(){
+
+    public void establecerUser(String n) {
+        user = n;
+    }
+
+    public String obtenerUser() {
+        return user;
+    }
+
+    public APIMovie obtenerLlave() {
         return llave;
     }
-    
-    public String obtenerUrl(){
+
+    public String obtenerUrl() {
         return url;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Usuario: %s\n"
+                + "LLave: %s\n"
+                + "Url: %s\n", user, llave.obtenerApiKey(), url);
     }
     
 }
